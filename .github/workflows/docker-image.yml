@@ -22,8 +22,12 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+     - name: Set Version
+      id: version
+      run: echo "VERSION=$(date +%s)" >> $GITHUB_ENV
+
     - name: Build the Docker image
-      run: docker build . --file Containerfile --tag ghcr.io/${{ github.repository_owner }}/rapidctl-container:$(date +%s)
+      run: docker build . --file Containerfile --tag ghcr.io/${{ github.repository_owner }}/rapidctl-container:${{ env.VERSION }}
 
     - name: Push the Docker image
-      run: docker push ghcr.io/${{ github.repository_owner }}/rapidctl-container:$(date +%s)
+      run: docker push ghcr.io/${{ github.repository_owner }}/rapidctl-container:${{ env.VERSION }}
