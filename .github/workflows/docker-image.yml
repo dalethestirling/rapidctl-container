@@ -22,7 +22,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-     - name: Set Version
+    - name: Set Version
       id: version
       run: echo "VERSION=$(date +%s)" >> $GITHUB_ENV
 
