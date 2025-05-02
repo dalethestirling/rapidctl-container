@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build the Docker image
-      run: docker build . --file Containerfile --tag rapidctl-container:$(date +%s)
+      run: docker build . --file Containerfile --tag ghcr.io/${{ github.repository_owner }}/rapidctl-container:$(date +%s)
 
     - name: Push the Docker image
       run: docker push ghcr.io/${{ github.repository_owner }}/rapidctl-container:$(date +%s)
