@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Simple reflector command that returns its input
+if [ $# -gt 0 ]; then
+    echo "$@"
+else
+    # If no arguments, read from stdin if possible (or just echo usage)
+    if [ ! -t 0 ]; then
+        cat -
+    else
+        echo "Usage: reflector [input_string]"
+    fi
+fi
