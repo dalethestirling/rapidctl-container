@@ -1,0 +1,8 @@
+{
+  "hello-world": {
+    "summary": "Prints a simple greeting."
+  },
+  "reflector": {
+    "summary": "Echoes whatever input is provided."
+  }
+}
