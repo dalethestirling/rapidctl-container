@@ -29,6 +29,10 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Set Version
+      id: version
+      run: echo "VERSION=$(date +%s)" >> $GITHUB_ENV
+
     - name: Docker meta
       id: meta
       uses: docker/metadata-action@v5
@@ -36,8 +40,7 @@ jobs:
         images: ghcr.io/${{ github.repository_owner }}/rapidctl-container
         tags: |
           type=raw,value=latest,enable={{is_default_branch}}
-          type=raw,value=${{ github.run_id }}
-          type=raw,value=${{ github.sha }}
+          type=raw,value=${{ env.VERSION }}
 
     - name: Build and push
       uses: docker/build-push-action@v6
