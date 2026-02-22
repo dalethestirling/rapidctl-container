@@ -22,8 +22,9 @@ Pre-installed scripts are located in `/opt/rapidctl/cmd/` and are available in t
 You can easily extend this container with your own custom commands:
 
 1.  **Add Scripts**: Place your scripts in the `cmd/` directory of this repository.
-2.  **Modify Containerfile**: If your scripts require additional system packages, add the necessary `dnf install` commands to the [Containerfile](file:///Users/dalestirling/Documents/Projects/rapidctl-container/Containerfile).
-3.  **Update Metadata**: If you add new binaries or scripts, ensure they are correctly added to the `/opt/rapidctl/cmd` path in the build process.
+2.  **Update Commands Manifest**: Add an entry for your new command in `commands.json` with a `summary`. This provides the subcommand help text in `rapidctl`.
+3.  **Modify Containerfile**: If your scripts require additional system packages, add the necessary `dnf install` commands to the [Containerfile](file:///Users/dalestirling/Documents/Projects/rapidctl-container/Containerfile).
+4.  **Update Metadata**: If you add new binaries or scripts, ensure they are correctly added to the `/opt/rapidctl/cmd` path in the build process.
 
 ## Multi-Platform Support
 
