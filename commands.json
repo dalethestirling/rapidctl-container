@@ -3,6 +3,19 @@
     "summary": "Prints a simple greeting."
   },
   "reflector": {
-    "summary": "Echoes whatever input is provided."
+    "summary": "Echoes whatever input is provided.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_string": {
+          "type": "string",
+          "description": "The string to reflect back."
+        }
+      },
+      "required": ["input_string"]
+    },
+    "argument_mapping": {
+      "positional": ["input_string"]
+    }
   }
 }
