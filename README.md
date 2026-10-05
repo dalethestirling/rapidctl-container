@@ -6,6 +6,8 @@ This repository provides a reference container environment for [rapidctl](https:
 
 `rapidctl` uses this container image as a lightweight, secure, and reproducible environment to run scripts and commands. It is optimized for fast startup and contains a set of common utilities and custom commands.
 
+The container image is **runtime-agnostic** — it works with both Podman and Docker runtimes.
+
 ## What is included
 
 The container is built on top of the **Red Hat Universal Base Image (UBI) 9**, providing a stable and minimal foundation.
@@ -38,5 +40,9 @@ Images are hosted on the GitHub Container Registry (GHCR).
 ## Integration with rapidctl
 
 The `rapidctl` library uses this container via its reference implementation, `examplectl`. When you run a command through `examplectl`, it pulls the image (if necessary) and executes the specified command within an instance of this container using the library.
+
+The container works with both **Podman** (default) and **Docker** runtimes. Select the runtime via the `RAPIDCTL_EXEC_MODE` environment variable:
+- `RAPIDCTL_EXEC_MODE=podman` (default)
+- `RAPIDCTL_EXEC_MODE=docker`
 
 For more information on how to use the library, visit the [rapidctl repository](https://github.com/dalethestirling/rapidctl).
