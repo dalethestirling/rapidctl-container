@@ -1,0 +1,8 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "container-dev": { "mode": "subagent", "description": "Container image changes", "permission": { "edit": "allow", "bash": "allow" } },
+    "generate-schema": { "mode": "subagent", "description": "Generate commands.json schema", "permission": { "edit": "allow", "bash": "allow" } }
+  },
+  "instructions": ["AGENTS.md"]
+}
